@@ -3,19 +3,35 @@
 const Controller = require('egg').Controller;
 
 class HomeController extends Controller {
-  async index() {
+  // 查询
+  async query() {
     const ctx = this.ctx;
-    // const id = ctx.query.user_id;
     console.log(ctx.query);
     const user = await ctx.service.user.find(ctx.query);
     ctx.body = user;
     return user;
   }
+  // 添加
+  async add() {
+    const ctx = this.ctx;
+    console.log(ctx.query);
+    const user = await ctx.service.user.add(ctx.query);
+    ctx.body = user;
+    return user;
+  }
+  // 更新
+  async update() {
+    const ctx = this.ctx;
+    console.log(ctx.query);
+    const user = await ctx.service.user.update(ctx.query);
+    ctx.body = user;
+    return user;
+  }
+  // 删除
   async destroy() {
     const ctx = this.ctx;
-    const id = ctx.query.user_id;
-    console.log(id);
-    const user = await ctx.service.user.destroy(id);
+    console.log(ctx.query);
+    const user = await ctx.service.user.destroy(ctx.query);
     ctx.body = user;
     return user;
   }
