@@ -5,8 +5,12 @@
  */
 module.exports = app => {
   const { router, controller } = app;
-  router.get('/home', controller.home.query);
-  router.post('/home', controller.home.add);
-  router.patch('/home', controller.home.update);
-  router.delete('/home', controller.home.destroy);
+  router.get('/login', controller.home.query);
+  router.post('/login', controller.home.add);
+  router.patch('/login', controller.home.update);
+  router.delete('/login', controller.home.destroy);
+  router.get('/layer', controller.layer.query);
+  router.post('/layer', controller.layer.add);
+  router.patch('/layer', controller.layer.update);
+  router.delete('/layer', controller.layer.destroy);
 };
