@@ -7,16 +7,25 @@
  */
 module.exports = appInfo => {
   /**
-   * built-in config
-   * @type {Egg.EggAppConfig}
-   **/
-  const config = exports = {};
+     * built-in config
+     * @type {Egg.EggAppConfig}
+     **/
+  const config = exports = {
+    bodyParser: { // 解除大小
+      jsonLimit: '100mb',
+      formLimit: '100mb',
+    },
+  };
 
   // use for cookie sign key, should change to your own and keep security
   config.keys = appInfo.name + '_1578532158437_4160';
 
   // add your middleware config here
   config.middleware = [];
+
+  config.multipart = {
+    mode: 'file',
+  };
 
   config.security = {
     csrf: {
