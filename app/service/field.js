@@ -26,7 +26,16 @@ class FieldService extends Service {
   // 更新
   async update(id) {
     // "users" 为test数据库数据表名
-    const user = await this.app.mysql.update('fields', id);
+    const user = await this.app.mysql.update('fields', {
+      ENname: id.ENname,
+      CNname: id.CNname,
+      fieldType: id.fieldType,
+      fieldSitua: id.fieldSitua,
+    }, {
+      where: {
+        fieldId: id.fieldId,
+      }, // 修改查询条件
+    });
     return {
       user,
     };
