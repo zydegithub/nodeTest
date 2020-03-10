@@ -36,6 +36,14 @@ class LayerController extends Controller {
     ctx.body = user;
     return user;
   }
+  // 更新
+  async updateName() {
+    const ctx = this.ctx;
+    console.log(ctx.query);
+    const user = await ctx.service.layer.updateName(ctx.query);
+    ctx.body = user;
+    return user;
+  }
   // 删除
   async destroy() {
     const ctx = this.ctx;

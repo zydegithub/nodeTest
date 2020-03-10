@@ -42,10 +42,23 @@ class LayerService extends Service {
   async update(id) {
     // "users" 为test数据库数据表名llwa
     const user = await this.app.mysql.update('layers', {
-      LayerName: id.LayerName,
-      showName: id.showName,
       layerGeojson: id.layerGeojson, // 需要修改的数据
       imgUrl: id.imgUrl,
+    }, {
+      where: {
+        layerId: id.layerId,
+      }, // 修改查询条件
+    });
+    return {
+      user,
+    };
+  }
+  // 更新
+  async updateName(id) {
+    // "users" 为test数据库数据表名llwa
+    const user = await this.app.mysql.update('layers', {
+      showName: id.showName, // 需要修改的数据
+      layerName: id.layerName,
     }, {
       where: {
         layerId: id.layerId,
