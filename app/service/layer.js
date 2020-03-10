@@ -42,6 +42,8 @@ class LayerService extends Service {
   async update(id) {
     // "users" 为test数据库数据表名llwa
     const user = await this.app.mysql.update('layers', {
+      LayerName: id.LayerName,
+      showName: id.showName,
       layerGeojson: id.layerGeojson, // 需要修改的数据
       imgUrl: id.imgUrl,
     }, {
