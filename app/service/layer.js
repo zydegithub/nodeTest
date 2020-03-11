@@ -44,6 +44,7 @@ class LayerService extends Service {
     const user = await this.app.mysql.update('layers', {
       layerGeojson: id.layerGeojson, // 需要修改的数据
       imgUrl: id.imgUrl,
+      updateTime: id.updateTime,
     }, {
       where: {
         layerId: id.layerId,
@@ -59,6 +60,7 @@ class LayerService extends Service {
     const user = await this.app.mysql.update('layers', {
       showName: id.showName, // 需要修改的数据
       layerName: id.layerName,
+      updateTime: id.updateTime,
     }, {
       where: {
         layerId: id.layerId,
