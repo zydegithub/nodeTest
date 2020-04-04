@@ -14,6 +14,7 @@ module.exports = app => {
   router.delete('/login', controller.home.destroy);
   router.get('/layer', controller.layer.query);
   router.get('/layerId', controller.layer.queryId);
+  router.get('/layerState', controller.layer.queryState);
   router.post('/layer', controller.layer.add);
   router.patch('/layer', controller.layer.update);
   router.patch('/updateName', controller.layer.updateName);

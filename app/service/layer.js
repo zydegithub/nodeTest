@@ -30,6 +30,18 @@ class LayerService extends Service {
       user,
     };
   }
+  // 查询
+  async findState(id) {
+    // "users" 为test数据库数据表名
+    const user = await this.app.mysql.select('layers', {
+      where: {
+        layerState: id.layerState,
+      },
+    });
+    return {
+      user,
+    };
+  }
   // 添加
   async add(id) {
     // "users" 为test数据库数据表名
@@ -61,6 +73,7 @@ class LayerService extends Service {
       showName: id.showName, // 需要修改的数据
       layerName: id.layerName,
       updateTime: id.updateTime,
+      layerState: id.layerState,
     }, {
       where: {
         layerId: id.layerId,
