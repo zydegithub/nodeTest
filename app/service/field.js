@@ -4,29 +4,20 @@ const Service = require('egg').Service;
 
 class FieldService extends Service {
   // 查询
-  async find(id) {
-    // "users" 为test数据库数据表名
-    const user = await this.app.mysql.select('fields', {
+  async find({ layerId }) {
+    return await this.app.mysql.select('fields', {
       where: {
-        layerId: id.layerId,
+        layerId,
       },
     });
-    return {
-      user,
-    };
   }
   // 添加
   async add(id) {
-    // "users" 为test数据库数据表名
-    const user = await this.app.mysql.insert('fields', id);
-    return {
-      user,
-    };
+    return await this.app.mysql.insert('fields', id);
   }
   // 更新
   async update(id) {
-    // "users" 为test数据库数据表名
-    const user = await this.app.mysql.update('fields', {
+    return await this.app.mysql.update('fields', {
       ENname: id.ENname,
       CNname: id.CNname,
       fieldType: id.fieldType,
@@ -36,17 +27,10 @@ class FieldService extends Service {
         fieldId: id.fieldId,
       }, // 修改查询条件
     });
-    return {
-      user,
-    };
   }
   // 删除
   async destroy(id) {
-    // "users" 为test数据库数据表名
-    const user = await this.app.mysql.delete('fields', id);
-    return {
-      user,
-    };
+    return await this.app.mysql.delete('fields', id);
   }
 }
 
