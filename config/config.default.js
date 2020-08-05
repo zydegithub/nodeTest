@@ -64,6 +64,19 @@ module.exports = appInfo => {
     agent: false,
   };
 
+  config.sequelize = {
+    dialect: 'mysql',
+    host: '39.105.87.199',
+    port: 3306,
+    database: 'cms_wy',
+    username: 'root',
+    password: '123456',
+    define: {
+      timestamps: false,
+      freezeTableName: true, // 强制表名称等于模型名称
+    },
+  };
+
   return {
     ...config,
     ...userConfig,
