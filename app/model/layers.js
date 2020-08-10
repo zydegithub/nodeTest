@@ -4,7 +4,7 @@
 module.exports = app => {
   const DataTypes = app.Sequelize;
 
-  const Model = app.model.define('layers', {
+  const layers = app.model.define('layers', {
     layerId: {
       type: DataTypes.INTEGER(255),
       allowNull: false,
@@ -55,9 +55,9 @@ module.exports = app => {
     tableName: 'layers',
   });
 
-  Model.associate = function() {
+  layers.associate = function() {
 
   };
 
-  return Model;
+  return layers;
 };

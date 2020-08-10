@@ -4,7 +4,7 @@
 module.exports = app => {
   const DataTypes = app.Sequelize;
 
-  const Model = app.model.define('user', {
+  const user = app.model.define('user', {
     id: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
@@ -38,9 +38,9 @@ module.exports = app => {
     tableName: 'user',
   });
 
-  Model.associate = function() {
-
+  user.associate = function() {
+    app.model.User.hasMany(app.model.Layers, { foreignKey: 'layerUser', targetKey: 'username' });
   };
 
-  return Model;
+  return user;
 };

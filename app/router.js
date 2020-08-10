@@ -8,10 +8,10 @@ module.exports = app => {
     router,
     controller,
   } = app;
-  router.get('/login', controller.home.query);
-  router.post('/login', controller.home.add);
-  router.patch('/login', controller.home.update);
-  router.delete('/login', controller.home.destroy);
+  router.get('/login', controller.user.query);
+  router.post('/login', controller.user.add);
+  router.patch('/login', controller.user.update);
+  router.delete('/login', controller.user.destroy);
   router.get('/layer', controller.layer.query);
   router.get('/layerId', controller.layer.queryId);
   router.get('/layerState', controller.layer.queryState);
